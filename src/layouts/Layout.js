@@ -6,7 +6,6 @@ import {breakPoints, cols} from "../mocks/layouts";
 
 export default function Layout({layout}) {
 	const documentWidth = document.body.offsetWidth;
-	
 	return (
 		<ResponsiveGridLayout
 			className="layout"
@@ -15,8 +14,9 @@ export default function Layout({layout}) {
 			cols={cols}
 			width={documentWidth}
 		>
-			{Array.from(layout).map(section => {
-				return (<section className={'section-container'} key={section.i}>
+			{Array.from(Object.values(layout)[0]).map((section,i) => {
+				console.log(section)
+				return (<section className={'section-container'} key={i}>
 					<GeneralColor color={randomColor()}>1</GeneralColor>
 				</section>)
 			})}
