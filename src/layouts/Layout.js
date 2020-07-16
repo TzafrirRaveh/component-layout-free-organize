@@ -9,14 +9,13 @@ export default function Layout({layout}) {
 	return (
 		<ResponsiveGridLayout
 			className="layout"
-			layout={layout}
+			layouts={layout}
 			breakpoints={breakPoints}
 			cols={cols}
 			width={documentWidth}
 		>
-			{Array.from(Object.values(layout)[0]).map((section,i) => {
-				console.log(section)
-				return (<section className={'section-container'} key={i}>
+			{Array.from(Object.values(layout)[0]).map(section => {
+				return (<section className={'section-container'} key={section.i}>
 					<GeneralColor color={randomColor()}>1</GeneralColor>
 				</section>)
 			})}

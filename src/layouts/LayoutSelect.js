@@ -2,7 +2,7 @@ import React from "react";
 import Layout from "./Layout";
 import {breakPoints, cols, layouts} from '../mocks/layouts'
 import {Link} from "react-router-dom";
-import { Responsive as ResponsiveGridLayout } from 'react-grid-layout';
+import {Responsive as ResponsiveGridLayout} from 'react-grid-layout';
 
 export default function LayoutSelect({layout}) {
 	const documentWidth = document.body.offsetWidth;
@@ -14,13 +14,13 @@ export default function LayoutSelect({layout}) {
 			layouts={layout}
 			width={documentWidth}
 		>
-				{Object.keys(layouts).map((layoutToShow, i) => {
-					return (
-						<Link key={i} to={`/${layoutToShow}`}>
-						<section className={'section-container'} key={i}>
+			{Object.keys(layouts).map((layoutToShow, i) => {
+				return (
+					<Link key={layout.l[i].i} to={`/${layoutToShow}`}>
+						<section className={'section-container'}>
 							<Layout layout={layouts[layoutToShow]}/>
 						</section>
-				</Link>
+					</Link>
 				)
 			})}
 		</ResponsiveGridLayout>
