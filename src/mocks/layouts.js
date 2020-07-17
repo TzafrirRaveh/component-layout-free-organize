@@ -40,17 +40,15 @@ export const layouts = {
 
 export const layoutSelectPage = {
 	l: [
-		{i: 'a', x: 0, y: 0, w: 6, h: 5, static: true},
-		{i: 'b', x: 6, y: 0, w: 6, h: 5, static: true}
+		{i: 'a', x: 0, y: 0, w: 6, h: 4, static: true},
+		{i: 'b', x: 6, y: 0, w: 6, h: 4, static: true}
 	],
 	m: [
-		{i: 'a', x: 0, y: 0, w: 3, h: 5, static: true},
-		{i: 'b', x: 3, y: 0, w: 3, h: 5, static: true}
+		{i: 'a', x: 0, y: 0, w: 3, h: 4, static: true},
+		{i: 'b', x: 3, y: 0, w: 3, h: 4, static: true}
 	],
 	s: [
-		{i: 'a', x: 0, y: 0, w: 2, h: 5, static: true},
-		{i: 'b', x: 0, y: 0, w: 2, h: 5, static: true}
+		{i: 'a', x: 0, y: 0, w: 2, h: 4, static: true},
+		{i: 'b', x: 0, y: 4, w: 2, h: 4, static: true}
 	]
 }
-
-export const colors = ['red', 'green', 'blue', 'orange']

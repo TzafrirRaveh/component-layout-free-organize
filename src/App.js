@@ -1,21 +1,15 @@
 import React from 'react';
-import './App.css';
 import './style/main.scss';
-import GeneralColor from "./general-component/general-color";
-import {BrowserRouter as Router, Link, Switch, Route} from "react-router-dom";
-import Layout from "./layouts/Layout";
+import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import LayoutSelect from "./layouts/LayoutSelect";
 import {layouts, layoutSelectPage} from './mocks/layouts';
-import {pages} from './mocks/pages';
-
+import {pages} from './mocks/generalMocks';
+import ColorComponentToLayout from "./general-component/ColorComponentToLayout";
 
 function App() {
 	return (
 		<div className="App">
 			<Router>
-				<nav>
-					{Array.from(pages).map((page,i) => <Link key={i} to={`/${page}`}>{page}</Link>)}
-				</nav>
 				<main>
 					<Switch>
 						<Route exact path={'/'}>
@@ -23,7 +17,7 @@ function App() {
 						</Route>
 						{Array.from(pages).map((page, i) => {
 							return (<Route key={i} path={`/${page}`}>
-								<Layout layout={layouts[page]}/>
+								<ColorComponentToLayout layout={layouts[page]}/>
 							</Route>)
 						})}
 					</Switch>

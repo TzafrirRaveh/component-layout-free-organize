@@ -1,34 +1,37 @@
-nav {
-  margin: .5rem 0;
-  display: flex;
-  justify-content: left;
-  a {
-    text-decoration: none;
-    padding: .5rem;
-    margin: 0 .5rem;
-    border-radius: .4rem;
-    color: black;
-    font-weight: bold;
-    background-color: lightgrey;
-    &:hover {
-      transition: .3s;
-      background-color: grey;
-      color: white;
-    }
-  }
-}
+@import "reset";
 
 .layout {
   position: relative;
 }
 
 .section-container {
-  border: .1rem solid;
+  border: .3rem solid;
   display: flex;
-  div {
-    flex: 1 1 auto;
+
+  &__not-responsive {
+    display: block;
+  }
+}
+
+.color-layout{
+  &__container {
     display: flex;
-    justify-content: center;
-    align-items: center;
+  }
+
+  &__item {
+
+  }
+  &__layout {
+    flex: 1 1 auto;
+  }
+}
+
+.color-component{
+  &__item {
+    margin: 1rem;
+  }
+  &__color{
+    flex: 1 1 auto;
+    padding: 2rem;
   }
 }

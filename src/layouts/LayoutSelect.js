@@ -1,28 +1,31 @@
 import React from "react";
-import Layout from "./Layout";
 import {breakPoints, cols, layouts} from '../mocks/layouts'
 import {Link} from "react-router-dom";
-import {Responsive as ResponsiveGridLayout} from 'react-grid-layout';
+import {Responsive, WidthProvider} from 'react-grid-layout';
+import LayoutNotResponsive from "./LayoutNotResponsive";
+const ResponsiveReactGridLayout = WidthProvider(Responsive);
 
 export default function LayoutSelect({layout}) {
 	const documentWidth = document.body.offsetWidth;
 	return (
-		<ResponsiveGridLayout
+		<ResponsiveReactGridLayout
 			className="layout"
 			breakpoints={breakPoints}
 			cols={cols}
 			layouts={layout}
-			width={documentWidth}
+			width={1200}
+			autoSize={false}
+			margin={[20,20]}
 		>
 			{Object.keys(layouts).map((layoutToShow, i) => {
 				return (
 					<Link key={layout.l[i].i} to={`/${layoutToShow}`}>
-						<section className={'section-container'}>
-							<Layout layout={layouts[layoutToShow]}/>
+						<section className={'section-container section-container__not-responsive'}>
+							<LayoutNotResponsive layout={layouts[layoutToShow].l}/>
 						</section>
 					</Link>
 				)
 			})}
-		</ResponsiveGridLayout>
+		</ResponsiveReactGridLayout>
 	)
 }
