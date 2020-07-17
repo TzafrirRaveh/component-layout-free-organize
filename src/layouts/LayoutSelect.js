@@ -6,7 +6,6 @@ import LayoutNotResponsive from "./LayoutNotResponsive";
 const ResponsiveReactGridLayout = WidthProvider(Responsive);
 
 export default function LayoutSelect({layout}) {
-	const documentWidth = document.body.offsetWidth;
 	return (
 		<ResponsiveReactGridLayout
 			className="layout"
@@ -17,11 +16,11 @@ export default function LayoutSelect({layout}) {
 			autoSize={false}
 			margin={[20,20]}
 		>
-			{Object.keys(layouts).map((layoutToShow, i) => {
+			{Object.keys(layouts).map((layoutName, i) => {
 				return (
-					<Link key={layout.l[i].i} to={`/${layoutToShow}`}>
+					<Link key={layouts[layoutName].l[i].i} to={`/${layoutName}`}>
 						<section className={'section-container section-container__not-responsive'}>
-							<LayoutNotResponsive layout={layouts[layoutToShow].l}/>
+							<LayoutNotResponsive page={layoutName} layout={layouts[layoutName].l}/>
 						</section>
 					</Link>
 				)

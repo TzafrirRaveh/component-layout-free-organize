@@ -1,9 +1,9 @@
 import React from "react";
-import GeneralColor from "../general-component/general-color";
+import {connect} from 'react-redux'
 import GridLayout from 'react-grid-layout';
-import {colors} from "../mocks/generalMocks";
+import {isColorPlaceHolderNeeded} from "../util/general-util";
 
-export default function LayoutNotResponsive({layout}) {
+function LayoutNotResponsive({layout, page, colors}) {
 	return (
 		<GridLayout
 			className="layout"
@@ -11,14 +11,24 @@ export default function LayoutNotResponsive({layout}) {
 			cols={12}
 			width={1200}
 		>
-			{Array.from(layout).map((section,i) => {
-				console.log(section)
-				console.log(i)
-				return (<section className={'section-container'} key={section.i}>
-					<GeneralColor color={colors[i]} i={i}>1</GeneralColor>
-				</section>)
+			{layout.map((section) => {
+				return (
+					<section
+						className={'section-container'}
+						key={section.i}>
+						{isColorPlaceHolderNeeded(page, colors, section.i, true)}
+					</section>
+				)
 			})}
 		
 		</GridLayout>
 	)
 }
+
+const mapStateToProps = state => {
+	return {
+		colors: state.colors
+	}
+}
+
+export default connect(mapStateToProps)(LayoutNotResponsive)

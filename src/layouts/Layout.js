@@ -1,26 +1,42 @@
 import React from "react";
-import GeneralColor from "../general-component/general-color";
-import {breakPoints, cols} from "../mocks/layouts";
+import {breakPoints, cols, layouts} from "../mocks/layouts";
 import {Responsive, WidthProvider} from 'react-grid-layout';
-import {colors} from "../mocks/generalMocks";
+import dragCommands from "../util/draggable-commands";
+import {connect} from "react-redux";
+import {isColorPlaceHolderNeeded} from "../util/general-util";
+
 const ResponsiveReactGridLayout = WidthProvider(Responsive);
 
-export default function Layout({layout}) {
-	const documentWidth = document.body.offsetWidth;
+
+function Layout({page, colors}) {
 	return (
 		<ResponsiveReactGridLayout
 			className="layout"
-			layouts={layout}
+			layouts={layouts[page]}
 			breakpoints={breakPoints}
 			cols={cols}
 			width={1200}
 		>
-			{Array.from(Object.values(layout)[0]).map((section,i) => {
-				return (<section className={'section-container'} key={section.i}>
-					<GeneralColor color={colors[i]} i={i}>1</GeneralColor>
+			{layouts[page].l.map((section, i) => {
+				return (<section
+					onDragOver={dragCommands.dragOverHandle}
+					onDrop={e=>dragCommands.dropHandle(e, section.i, page)}
+					data-page={page}
+					data-section={section.i}
+					className={'section-container'}
+					key={section.i}>
+					{isColorPlaceHolderNeeded(page, colors, section.i)}
 				</section>)
 			})}
-			
+		
 		</ResponsiveReactGridLayout>
 	)
 }
+
+const mapStateToProps = state => {
+	return {
+		colors: state.colors
+	}
+}
+
+export default connect(mapStateToProps)(Layout)
