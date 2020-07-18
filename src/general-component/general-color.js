@@ -2,11 +2,11 @@ import React from "react";
 import store from "../redux/reducer/reducer";
 import {free_color} from "../redux/action/action";
 
-function GeneralColor({color, i, disableClick}) {
+function GeneralColor({color, isClickable}) {
 	return (<div
-		onClick={() => !disableClick && store.dispatch(free_color(color))}
+		onClick={() => isClickable && store.dispatch(free_color(color))}
 		className={'color-component__color'}
-		style={{backgroundColor:color}}>some general component no {i}</div>)
+		style={{backgroundColor: color}}>Some general component</div>)
 }
 
 export default GeneralColor;

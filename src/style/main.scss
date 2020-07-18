@@ -2,36 +2,64 @@
 
 .layout {
   position: relative;
+
+  a {
+    border: 0;
+
+    &:hover {
+      transition: .3s;
+      background-color: rgba(0, 0, 0, .1);
+    }
+  }
 }
 
 .section-container {
-  border: .3rem solid;
+  border: .3rem solid black;
   display: flex;
 
   &__not-responsive {
     display: block;
   }
+
+  a > & {
+    padding-right: .6rem;
+  }
 }
 
-.color-layout{
+.color-layout {
   &__container {
     display: flex;
   }
 
-  &__item {
-
+  &__list {
+    width: 23.5rem;
   }
+
   &__layout {
     flex: 1 1 auto;
   }
 }
 
-.color-component{
+.color-component {
   &__item {
     margin: 1rem;
+    font-weight: bold;
+    font-size: 1.5rem;
   }
-  &__color{
+
+  &__color {
     flex: 1 1 auto;
     padding: 2rem;
+    color: #000;
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+
+  &__empty {
+    margin: 1rem;
+    padding: 1rem 2rem;
+    border: .1rem solid;
+    font-weight: bold;
+    font-size: 1.5rem;
   }
 }

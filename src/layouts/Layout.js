@@ -3,10 +3,9 @@ import {breakPoints, cols, layouts} from "../mocks/layouts";
 import {Responsive, WidthProvider} from 'react-grid-layout';
 import dragCommands from "../util/draggable-commands";
 import {connect} from "react-redux";
-import {isColorPlaceHolderNeeded} from "../util/general-util";
+import {isColorPlaceHolderNeeded} from "../util/layout-util";
 
 const ResponsiveReactGridLayout = WidthProvider(Responsive);
-
 
 function Layout({page, colors}) {
 	return (
@@ -15,20 +14,17 @@ function Layout({page, colors}) {
 			layouts={layouts[page]}
 			breakpoints={breakPoints}
 			cols={cols}
-			width={1200}
+			width={1}
 		>
 			{layouts[page].l.map((section, i) => {
 				return (<section
 					onDragOver={dragCommands.dragOverHandle}
-					onDrop={e=>dragCommands.dropHandle(e, section.i, page)}
-					data-page={page}
-					data-section={section.i}
+					onDrop={e => dragCommands.dropHandle(e, section.i, page)}
 					className={'section-container'}
 					key={section.i}>
-					{isColorPlaceHolderNeeded(page, colors, section.i)}
+					{isColorPlaceHolderNeeded(page, colors, section.i, true)}
 				</section>)
 			})}
-		
 		</ResponsiveReactGridLayout>
 	)
 }

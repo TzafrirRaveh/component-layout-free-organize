@@ -1,7 +1,7 @@
 import React from "react";
 import {connect} from 'react-redux'
 import GridLayout from 'react-grid-layout';
-import {isColorPlaceHolderNeeded} from "../util/general-util";
+import {isColorPlaceHolderNeeded} from "../util/layout-util";
 
 function LayoutNotResponsive({layout, page, colors}) {
 	return (
@@ -16,11 +16,10 @@ function LayoutNotResponsive({layout, page, colors}) {
 					<section
 						className={'section-container'}
 						key={section.i}>
-						{isColorPlaceHolderNeeded(page, colors, section.i, true)}
+						{isColorPlaceHolderNeeded(page, colors, section.i)}
 					</section>
 				)
 			})}
-		
 		</GridLayout>
 	)
 }

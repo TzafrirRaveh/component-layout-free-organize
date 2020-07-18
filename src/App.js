@@ -18,7 +18,7 @@ function App() {
 							<Route exact path={'/'}>
 								<LayoutSelect layout={layoutSelectPage}/>
 							</Route>
-							{Array.from(pages).map((page, i) => {
+							{pages.map((page, i) => {
 								return (<Route key={i} path={`/${page}`}>
 									<ColorComponentToLayout page={page}/>
 								</Route>)

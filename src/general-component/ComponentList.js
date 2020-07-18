@@ -3,21 +3,20 @@ import GeneralColor from "./general-color";
 import dragCommands from "../util/draggable-commands";
 import {connect} from "react-redux";
 
-function ComponentList({colors, free_color}) {
+function ComponentList({colors}) {
 	return (
 		<ul>
 			{Object.keys(colors).map((color, i) => {
-				if(colors[color] !== 'free') {
+				if (colors[color] !== 'free') {
 					const positionOf = colors[color];
-					return <li key={i}> the color {color} is in the position of {positionOf[0]} for section {positionOf[1]}</li>
+					return <li className={'color-component__empty'} key={i}>The color {color} is in the position of {positionOf[0]} for section {positionOf[1]}</li>
 				} else {
 					return (<li
-						data-color={color}
-						onDragStart={e=>dragCommands.dragStart(e, color)}
+						onDragStart={e => dragCommands.dragStart(e, color)}
 						draggable={true}
 						className={'color-component__item'}
 						key={i}>
-						<GeneralColor color={color} i={i}/>
+						<GeneralColor color={color}/>
 					</li>)
 				}
 			})}

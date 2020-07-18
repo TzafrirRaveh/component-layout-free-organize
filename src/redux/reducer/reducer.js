@@ -14,12 +14,12 @@ const updateColors = (state = initialState, action) => {
 		case FREE_COLORS:
 			return {
 				...state,
-				colors: {...state.colors, [action.payload]:'free'}
+				colors: {...state.colors, [action.payload]: 'free'}
 			};
 		case CATCH_COLORS:
 			return {
 				...state,
-				colors: {...state.colors, [action.payload.color]:[action.payload.page,action.payload.sectionIndex]}
+				colors: {...state.colors, [action.payload.color]: [action.payload.page, action.payload.sectionIndex]}
 			};
 		default:
 			return state;

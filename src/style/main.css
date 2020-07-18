@@ -13,17 +13,30 @@ ul li {
 .layout {
   position: relative;
 }
+.layout a {
+  border: 0;
+}
+.layout a:hover {
+  transition: 0.3s;
+  background-color: rgba(0, 0, 0, 0.1);
+}
 
 .section-container {
-  border: 0.3rem solid;
+  border: 0.3rem solid black;
   display: flex;
 }
 .section-container__not-responsive {
   display: block;
 }
+a > .section-container {
+  padding-right: 0.6rem;
+}
 
 .color-layout__container {
   display: flex;
+}
+.color-layout__list {
+  width: 23.5rem;
 }
 .color-layout__layout {
   flex: 1 1 auto;
@@ -31,10 +44,22 @@ ul li {
 
 .color-component__item {
   margin: 1rem;
+  font-weight: bold;
+  font-size: 1.5rem;
 }
 .color-component__color {
   flex: 1 1 auto;
   padding: 2rem;
+  color: #000;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+.color-component__empty {
+  margin: 1rem;
+  padding: 1rem 2rem;
+  border: 0.1rem solid;
+  font-weight: bold;
+  font-size: 1.5rem;
 }
 
 /*# sourceMappingURL=main.css.map */
