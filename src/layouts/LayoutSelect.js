@@ -8,25 +8,28 @@ const ResponsiveReactGridLayout = WidthProvider(Responsive);
 
 export default function LayoutSelect({layout}) {
 	return (
-		<ResponsiveReactGridLayout
-			className="layout layout_no-border"
-			breakpoints={breakPoints}
-			cols={cols}
-			layouts={layout}
-			width={1}
-			autoSize={false}
-			margin={[20, 20]}
-			padding={[20, 20]}
-		>
-			{Object.keys(layouts).map((layoutName, i) => {
-				return (
-					<Link key={layout.l[i].i} to={`/${layoutName}`}>
-						<section className={'section-container section-container__not-responsive'}>
-							<LayoutNotResponsive page={layoutName} layout={layouts[layoutName].l}/>
-						</section>
-					</Link>
-				)
-			})}
-		</ResponsiveReactGridLayout>
+		<div>
+			<h1 className={'title'}>Select the layout you want to edit</h1>
+			<ResponsiveReactGridLayout
+				className="layout layout_no-border"
+				breakpoints={breakPoints}
+				cols={cols}
+				layouts={layout}
+				width={1}
+				autoSize={false}
+				margin={[20, 20]}
+				padding={[20, 20]}
+			>
+				{Object.keys(layouts).map((layoutName, i) => {
+					return (
+						<Link key={layout.l[i].i} to={`/${layoutName}`}>
+							<section className={'section-container section-container__not-responsive'}>
+								<LayoutNotResponsive page={layoutName} layout={layouts[layoutName].l}/>
+							</section>
+						</Link>
+					)
+				})}
+			</ResponsiveReactGridLayout>
+		</div>
 	)
 }
